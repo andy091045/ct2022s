@@ -1,14 +1,99 @@
+<!DOCTYPE html>
 <html>
-	<head></head>
-	<body> 
-		<h1> hw2 </h1>
-		<script>
-			var div = document.createElement('div');
-			div.innerText = 'This is hw2';
-			document.body.appendChild(div);
-		</script>
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>程式作業二</title>
+    <script src="https://d3js.org/d3.v7.min.js" charset="utf-8"></script>
+    <style type="text/css">
+      svg {
+        border: 1px solid navy;
+      }
+    </style>
+  </head>
+  <body>
+    <hr />
+    蘇東坡
+    <hr />
+    <div id="planes"></div>
+    <hr />
 
+    <svg width="512" height="512">
+      <rect
+        x="256"
+        y="256"
+        width="75"
+        height="75"
+        fill="#FF6CC4"
+        stroke="#C30D23"
+        stroke-width="3"
+      />
+      <polygon
+        fill="#68EADD"
+        stroke="#C30D23"
+        stroke-width="3"
+        points="151,39 163,63 189,66 170,85 175,111 151,99 127,111 132,85 
+	  113,66 139,63 "
+      />
+    </svg>
 
+    <hr />
+    <script type="text/javascript">
+      var data = [
+        "BMP",
+        "SMP",
+        "SIP",
+        "TIP",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "SSP",
+        "PUA-A",
+        "PUA-B",
+      ];
 
+      //Create SVG element
+      var svg = d3
+        .select("#planes") // body
+        .append("svg")
+        .attr("width", 1280)
+        .attr("height", 96)
+        .attr("id", "svgplanes")
+        .attr("xmlns", "http://www.w3.org/2000/svg")
+        .attr("xmlns:svg", "http://www.w3.org/2000/svg")
+        .attr("xmlns:xlink", "http://www.w3.org/1999/xlink");
+      svg
+        .selectAll("rect")
+        .data(data)
+        .enter()
+        .append("rect")
+        .attr("id", function (d, i) {
+          return "plane" + i;
+        })
+        .attr("x", function (d, i) {
+          return 8 + i * 64 + i * 8;
+        })
+        .attr("y", 8)
+        .attr("width", 64)
+        .attr("height", 64)
+        .attr("fill", function (d, i) {
+          return (
+            "rgb(" +
+            (0).toString() +
+            ", " +
+            ((i % 17) * 16).toString() +
+            ", " +
+            ((i % 17) * 16).toString() +
+            ")"
+          );
+        });
+    </script>
+  </body>
 </html>
