@@ -1,0 +1,14 @@
+.medium{
+ 
+			background-color: rgb(223, 168, 66);
+			height: 2000px;
+			margin: 10px;
+			font-family: ConvertHD;	
+			font-size: 40px;
+			text-align: center;
+}
+
+@font-face {
+    font-family: "ConvertHD";
+    src: url(./ConvertHD.ttf);
+}
